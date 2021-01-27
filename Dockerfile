@@ -1,14 +1,15 @@
 FROM alpine:latest
-MAINTAINER bluebu <bluebuwang@gmail.com>
+MAINTAINER Felix Yuan <yyscamper@163.com>
 
 #------------------------------------------------------------------------------
 # Environment variables:
 #------------------------------------------------------------------------------
 
-RUN \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories && \
   apk --update --upgrade add \
       py-pip \
       privoxy \
+      libsodium \
   && rm /var/cache/apk/*
 
 RUN pip install shadowsocks
