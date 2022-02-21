@@ -12,7 +12,7 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
       libsodium \
   && rm /var/cache/apk/*
 
-RUN pip install shadowsocks
+RUN pip install https://github.com/shadowsocks/shadowsocks/archive/master.zip -U
 
 ENV SERVER_ADDR= \
     SERVER_PORT=8899  \

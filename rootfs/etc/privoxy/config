@@ -1,12 +1,6 @@
 confdir /etc/privoxy
 logdir /var/log/privoxy
 
-actionsfile match-all.action # Actions that are applied to all sites and maybe overruled later on.
-actionsfile default.action   # Main actions file
-actionsfile user.action      # User customizations
-
-filterfile default.filter
-filterfile user.filter      # User customizations
 
 logfile privoxy.log
 listen-address  :8118
@@ -20,13 +14,7 @@ enforce-blocks 0
 buffer-limit 4096
 enable-proxy-authentication-forwarding 0
 
-# forward-socks5  / 127.0.0.1:7070  .  
-forward          /    .
-forward-socks5  .dropbox*.com 127.0.0.1:7070  .
-forward-socks5  .*google*.* 127.0.0.1:7070  .
-forward-socks5  .*facebook*.* 127.0.0.1:7070  .
-forward-socks5  .*twitter*.* 127.0.0.1:7070  .
-forward-socks5  .*91porn*.* 127.0.0.1:7070  .
+forward-socks5  / 127.0.0.1:7070  .  
 
 forwarded-connect-retries  0
 

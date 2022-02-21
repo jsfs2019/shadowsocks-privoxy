@@ -9,13 +9,14 @@
 
 ## Features
 
--  Add chacha20 support
+-  Add chacha20-ietf-poly1305 support
 
 ## Run
 
 ```bash
-docker run --name shadowsocks-privoxy \
-  -e SERVER_ADDR=ss.server.ip SERVER_PORT=port PASSWORD=123456 METHOD=chacha20 \
-  -p 8118:8118 7070:7070 \
-  yyscamper/shadowsocks-privoxy:latest
+docker run -i -t -e SERVER_ADDR=<addr> -e SERVER_PORT=<port> -e PASSWORD=<passwd> -e METHOD=chacha20-ietf-poly1305 -p 8118:8118 -p 7070:7070 jarontang/shadowsocks-privoxy
 ```
+notes:
+
+- 8118: http proxy port
+- 7070: socks5 proxy port
